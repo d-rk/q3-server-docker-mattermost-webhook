@@ -1,19 +1,38 @@
 
-const request = require('request');
+const https = require('https');
 
-const mattermostUrl = process.env.MATTERMOST_URL || '';
-console.log('mattermostUrl: ' + mattermostUrl);
+const mattermostHost = process.env.MATTERMOST_HOST || '';
+const mattermostPath = process.env.MATTERMOST_PATH || '';
+console.log('mattermostHost: ' + mattermostHost);
+console.log('mattermostPath: ' + mattermostPath);
 
 function sendNotification(message) {
-    request.post(mattermostUrl, {
-        json: {
-            text: message
+
+    const data = JSON.stringify({
+        text: message
+    });
+
+    const options = {
+        hostname: mattermostHost,
+        port: 443,
+        path: mattermostPath,
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Content-Length': data.length
         }
-    }, (error, res, body) => {
-        if (error) {
-            console.error(error);
-        }
-    })
+    };
+
+    const req = https.request(options, res => {
+        console.log(`statusCode: ${res.statusCode}`);
+    });
+
+    req.on('error', error => {
+        console.error(error)
+    });
+
+    req.write(data);
+    req.end();
 }
 
 function sanitizePlayerName(name) {
