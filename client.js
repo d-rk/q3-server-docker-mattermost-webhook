@@ -3,8 +3,11 @@ function startClient() {
 
     const host = process.env.REST_API_HOST || '127.0.0.1';
     const port = process.env.REST_API_PORT || '9009';
+    const url = 'http://' + host + ':' + port;
 
-    let socket = require('socket.io-client')('http://' + host + ':' + port);
+    console.log('url: ' + url);
+
+    let socket = require('socket.io-client')(url);
     socket.on('connect', function () {
         console.log("connected");
     });
