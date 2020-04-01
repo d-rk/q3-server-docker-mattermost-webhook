@@ -1,6 +1,10 @@
+
 function startClient() {
 
-    let socket = require('socket.io-client')('http://127.0.0.1:9009');
+    const host = process.env.REST_API_HOST || '127.0.0.1';
+    const port = process.env.REST_API_PORT || '9009';
+
+    let socket = require('socket.io-client')('http://' + host + ':' + port);
     socket.on('connect', function () {
         console.log("connected");
     });
