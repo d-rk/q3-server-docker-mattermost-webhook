@@ -74,6 +74,8 @@ function startClient() {
     socket.on('gameEnd', function (payload) {
         console.log("gameEnd: " + JSON.stringify(payload));
         
+        if (Object.keys(payload.data.players).length == 0) { return; }
+        
         let table = "| Player  | Frags  |\n"
                   + "| :------ | :----- |\n";
         
