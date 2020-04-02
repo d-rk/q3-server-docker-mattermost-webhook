@@ -45,6 +45,9 @@ function startClient() {
     const port = process.env.REST_API_PORT || '9009';
     const url = 'http://' + host + ':' + port;
 
+    let currentMap = undefined;
+    let currentPlayers = [];
+
     console.log('url: ' + url);
 
     let socket = require('socket.io-client')(url);
@@ -56,7 +59,11 @@ function startClient() {
     });
     socket.on('playerBegin', function (payload) {
         console.log("playerBegin: " + JSON.stringify(payload));
-        sendNotification("player joined: **" + sanitizePlayerName(payload.data.n) + "**");
+        let name = sanitizePlayerName(player.n);
+        if (currentPlayers.indexOf(name) === -1) {
+            sendNotification("player joined: **" + sanitizePlayerName(payload.data.n) + "**");
+            currentPlayers.push(name);
+        }
     });
     socket.on('playerInfoChanged', function (payload) {
         console.log("playerInfoChanged: " + JSON.stringify(payload));
@@ -69,24 +76,31 @@ function startClient() {
     });
     socket.on('gameStart', function (payload) {
         console.log("gameStart: " + JSON.stringify(payload));
-        sendNotification("new game started: **" + payload.data.properties.mapname + "**");
+        if (currentMap !== payload.data.properties.mapname) {
+            sendNotification("new game started: **" + payload.data.properties.mapname + "**");
+            currentMap = payload.data.properties.mapname;
+            currentPlayers = [];
+        }
     });
     socket.on('gameEnd', function (payload) {
         console.log("gameEnd: " + JSON.stringify(payload));
         
-        if (Object.keys(payload.data.players).length == 0) { return; }
-        
+        if (Object.keys(payload.data.players).length === 0) { return; }
+
+        const keysSorted = Object.keys(payload.data.players).sort(function (a, b) {
+            return payload.data.players[a].score - payload.data.players[b].score
+        });
+
         let table = "| Player  | Frags  |\n"
-                  + "| :------ | :----- |\n";
-        
-        Object.values(payload.data.players)
-            .sort(function(a,b) {a.score - b.score})
-            .forEach(function(player) {
-                let name = sanitizePlayerName(player.n);
-                let score = player.score;
-                table += "| " + name + " | " + score + " |\n";
-            }
-        
+            + "| :------ | :----- |\n";
+
+        keysSorted.forEach(function(id) {
+            const player = payload.data.players[id];
+            let name = sanitizePlayerName(player.n);
+            let score = player.score;
+            table += "| " + name + " | " + score + " |\n";
+        });
+
         sendNotification(table);
     });
     socket.on('gameShutdown', function (payload) {
