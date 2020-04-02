@@ -73,17 +73,21 @@ function startClient() {
     });
     socket.on('gameEnd', function (payload) {
         console.log("gameEnd: " + JSON.stringify(payload));
-        let bestPlayer = undefined;
-        Object.keys(payload.data.players).forEach(function(id) {
-            let player = payload.data.players[id];
-            if (bestPlayer === undefined || player.score > bestPlayer.score) {
-                bestPlayer = player;
+        
+        if (Object.keys(payload.data.players).length == 0) { return; }
+        
+        let table = "| Player  | Frags  |\n"
+                  + "| :------ | :----- |\n";
+        
+        Object.values(payload.data.players)
+            .sort(function(a,b) {a.score - b.score})
+            .forEach(function(player) {
+                let name = sanitizePlayerName(player.n);
+                let score = player.score;
+                table += "| " + name + " | " + score + " |\n";
             }
-        });
-        if (bestPlayer !== undefined) {
-            const playerName = sanitizePlayerName(bestPlayer.n);
-            sendNotification("**" + playerName + "** won the game.");
-        }
+        
+        sendNotification(table);
     });
     socket.on('gameShutdown', function (payload) {
         console.log("gameShutdown: " + JSON.stringify(payload));
