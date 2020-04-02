@@ -59,9 +59,9 @@ function startClient() {
     });
     socket.on('playerBegin', function (payload) {
         console.log("playerBegin: " + JSON.stringify(payload));
-        let name = sanitizePlayerName(player.n);
+        let name = sanitizePlayerName(payload.data.n);
         if (currentPlayers.indexOf(name) === -1) {
-            sendNotification("player joined: **" + sanitizePlayerName(payload.data.n) + "**");
+            sendNotification("player joined: **" + name + "**");
             currentPlayers.push(name);
         }
     });
@@ -88,7 +88,7 @@ function startClient() {
         if (Object.keys(payload.data.players).length === 0) { return; }
 
         const keysSorted = Object.keys(payload.data.players).sort(function (a, b) {
-            return payload.data.players[a].score - payload.data.players[b].score
+            return payload.data.players[b].score - payload.data.players[a].score
         });
 
         let table = "| Player  | Frags  |\n"
