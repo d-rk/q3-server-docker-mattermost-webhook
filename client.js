@@ -39,6 +39,20 @@ function sanitizePlayerName(name) {
     return name.replace(/\^\d+/g, "")
 }
 
+function extractMaxPlayerAndCount(player, players, property) {
+    const maxPlayerIdSortedByCount = Object.keys(player[property]).sort(function (a, b) {
+        return player[property][b] - player[property][a]
+    });
+
+    if (maxPlayerIdSortedByCount.length > 0) {
+        const maxPlayer = players[maxPlayerIdSortedByCount[0]];
+        const maxCount = player[property][maxPlayerIdSortedByCount[0]];
+        return sanitizePlayerName(maxPlayer.n) + "(" + maxCount + ")";
+    } else {
+        return "-";
+    }
+}
+
 function startClient() {
 
     const host = process.env.REST_API_HOST || '127.0.0.1';
@@ -87,18 +101,35 @@ function startClient() {
         
         if (Object.keys(payload.data.players).length === 0) { return; }
 
-        const keysSorted = Object.keys(payload.data.players).sort(function (a, b) {
+        const playerIdSortedByScore = Object.keys(payload.data.players).sort(function (a, b) {
             return payload.data.players[b].score - payload.data.players[a].score
         });
 
-        let table = "| Player  | Frags  |\n"
-            + "| :------ | :----- |\n";
+        let table = "| Player  | Frags  | Most Killed | Most Killed By | Favorite Weapon | Killed By World |\n"
+            + "| :------ | :----- | :----- | :----- | :----- | :----- |\n";
 
-        keysSorted.forEach(function(id) {
+        playerIdSortedByScore.forEach(function(id) {
             const player = payload.data.players[id];
             let name = sanitizePlayerName(player.n);
             let score = player.score;
-            table += "| " + name + " | " + score + " |\n";
+            let mostKilled = extractMaxPlayerAndCount(player, payload.data.players, "killed");
+            let mostKilledBy = extractMaxPlayerAndCount(player, payload.data.players, "killedBy");
+            let favoriteWeapon = "-";
+            let killedByWorld = 0;
+
+            if ("1022" in player.killedBy) {
+                killedByWorld = player.killedBy["1022"];
+            }
+
+            const favoriteWeapons = Object.keys(player.weaponsUsed).sort(function (a, b) {
+                return player.weaponsUsed[b] - player.weaponsUsed[a]
+            });
+
+            if (favoriteWeapons.length > 0) {
+                favoriteWeapon = favoriteWeapons[0] + "(" + player.weaponsUsed[favoriteWeapons[0]] + ")";
+            }
+
+            table += "| " + name + " | " + score + " | " + mostKilled + " | " + mostKilledBy + " | " + favoriteWeapon + " | " + killedByWorld  + " |\n";
         });
 
         sendNotification(table);
