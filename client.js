@@ -8,6 +8,8 @@ console.log('mattermostPath: ' + mattermostPath);
 
 function sendNotification(message) {
 
+    console.log('sendNotification: ' + message);
+
     const data = JSON.stringify({
         text: message
     });
