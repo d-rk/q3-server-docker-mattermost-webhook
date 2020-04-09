@@ -111,27 +111,29 @@ function startClient() {
             + "| :------ | :----- | :----- | :----- | :----- | :----- |\n";
 
         playerIdSortedByScore.forEach(function(id) {
-            const player = payload.data.players[id];
-            let name = sanitizePlayerName(player.n);
-            let score = player.score;
-            let mostKilled = extractMaxPlayerAndCount(player, payload.data.players, "killed");
-            let mostKilledBy = extractMaxPlayerAndCount(player, payload.data.players, "killedBy");
-            let favoriteWeapon = "-";
-            let killedByWorld = 0;
+            if (id !== "1022") {
+                const player = payload.data.players[id];
+                let name = sanitizePlayerName(player.n);
+                let score = player.score;
+                let mostKilled = extractMaxPlayerAndCount(player, payload.data.players, "killed");
+                let mostKilledBy = extractMaxPlayerAndCount(player, payload.data.players, "killedBy");
+                let favoriteWeapon = "-";
+                let killedByWorld = 0;
 
-            if ("1022" in player.killedBy) {
-                killedByWorld = player.killedBy["1022"];
+                if ("1022" in player.killedBy) {
+                    killedByWorld = player.killedBy["1022"];
+                }
+
+                const favoriteWeapons = Object.keys(player.weaponsUsed).sort(function (a, b) {
+                    return player.weaponsUsed[b] - player.weaponsUsed[a]
+                });
+
+                if (favoriteWeapons.length > 0) {
+                    favoriteWeapon = favoriteWeapons[0] + "(" + player.weaponsUsed[favoriteWeapons[0]] + ")";
+                }
+
+                table += "| " + name + " | " + score + " | " + mostKilled + " | " + mostKilledBy + " | " + favoriteWeapon + " | " + killedByWorld  + " |\n";
             }
-
-            const favoriteWeapons = Object.keys(player.weaponsUsed).sort(function (a, b) {
-                return player.weaponsUsed[b] - player.weaponsUsed[a]
-            });
-
-            if (favoriteWeapons.length > 0) {
-                favoriteWeapon = favoriteWeapons[0] + "(" + player.weaponsUsed[favoriteWeapons[0]] + ")";
-            }
-
-            table += "| " + name + " | " + score + " | " + mostKilled + " | " + mostKilledBy + " | " + favoriteWeapon + " | " + killedByWorld  + " |\n";
         });
 
         sendNotification(table);
