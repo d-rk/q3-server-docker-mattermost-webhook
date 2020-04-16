@@ -149,7 +149,7 @@ function startClient() {
             return payload.data.players[b].score - payload.data.players[a].score
         });
 
-        let table = "| Player  | Frags  | Most Killed | Most Killed By | Favorite Weapon | Killed By World | Suicides |\n"
+        let table = "| Player  | Frags  | Most Killed | Most Killed By | Favorite Weapons | Killed By World | Suicides |\n"
             + "| :------ | :----- | :----- | :----- | :----- | :----- | :----- |\n";
 
         playerIdSortedByScore.forEach(function(id) {
@@ -159,7 +159,7 @@ function startClient() {
                 let score = player.score;
                 let mostKilled = extractMaxPlayerAndCount(player, payload.data.players, "killed");
                 let mostKilledBy = extractMaxPlayerAndCount(player, payload.data.players, "killedBy");
-                let favoriteWeapon = "-";
+                let favoriteWeaponString = "";
                 let killedByWorld = 0;
                 let suicides = 0;
 
@@ -177,11 +177,14 @@ function startClient() {
                     return player.weaponsUsed[b] - player.weaponsUsed[a]
                 });
 
-                if (favoriteWeapons.length > 0) {
-                    favoriteWeapon = getWeaponIcon(favoriteWeapons[0]) + " " + player.weaponsUsed[favoriteWeapons[0]];
+                for (let i = 0; i < favoriteWeapons.length; i++) {
+                    if (i < 3) {
+                        favoriteWeaponString += (" " + getWeaponIcon(favoriteWeapons[i]) + " " + player.weaponsUsed[favoriteWeapons[i]]);
+                        favoriteWeaponString = favoriteWeaponString.trimStart();
+                    }
                 }
 
-                table += "| " + name + " | " + score + " | " + mostKilled + " | " + mostKilledBy + " | " + favoriteWeapon + " | " + killedByWorld + " | " + suicides  + " |\n";
+                table += "| " + name + " | " + score + " | " + mostKilled + " | " + mostKilledBy + " | " + favoriteWeaponString + " | " + killedByWorld + " | " + suicides  + " |\n";
             }
         });
 

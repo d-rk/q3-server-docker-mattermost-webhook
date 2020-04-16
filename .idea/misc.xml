@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="MarkdownNavigator.ProfileManager" plain-text-search-scope="Project Files" />
+  <component name="MarkdownProjectSettings" wasCopied="$LOGBACK_CONSOLE_LOGGING$">
+    <PreviewSettings splitEditorLayout="SPLIT" splitEditorPreview="PREVIEW" useGrayscaleRendering="false" zoomFactor="1.0" maxImageWidth="0" showGitHubPageIfSynced="false" allowBrowsingInPreview="false" synchronizePreviewPosition="$LOGBACK_CONSOLE_LOGGING$" highlightPreviewType="NONE" highlightFadeOut="5" highlightOnTyping="$LOGBACK_CONSOLE_LOGGING$" synchronizeSourcePosition="$LOGBACK_CONSOLE_LOGGING$" verticallyAlignSourceAndPreviewSyncPosition="$LOGBACK_CONSOLE_LOGGING$" showSearchHighlightsInPreview="false" showSelectionInPreview="$LOGBACK_CONSOLE_LOGGING$" openRemoteLinks="$LOGBACK_CONSOLE_LOGGING$" replaceUnicodeEmoji="false" lastLayoutSetsDefault="false">
+      <PanelProvider>
+        <provider providerId="com.vladsch.idea.multimarkdown.editor.swing.html.panel" providerName="Default - Swing" />
+      </PanelProvider>
+    </PreviewSettings>
+    <ParserSettings gitHubSyntaxChange="false" emojiShortcuts="1" emojiImages="0">
+      <PegdownExtensions>
+        <option name="ABBREVIATIONS" value="false" />
+        <option name="ANCHORLINKS" value="$LOGBACK_CONSOLE_LOGGING$" />
+        <option name="ASIDE" value="false" />
+        <option name="ATXHEADERSPACE" value="$LOGBACK_CONSOLE_LOGGING$" />
+        <option name="AUTOLINKS" value="false" />
+        <option name="DEFINITIONS" value="false" />
+        <option name="DEFINITION_BREAK_DOUBLE_BLANK_LINE" value="false" />
+        <option name="FENCED_CODE_BLOCKS" value="$LOGBACK_CONSOLE_LOGGING$" />
+        <option name="FOOTNOTES" value="false" />
+        <option name="HARDWRAPS" value="false" />
+        <option name="HTML_DEEP_PARSER" value="false" />
+        <option name="INSERTED" value="false" />
+        <option name="QUOTES" value="false" />
+        <option name="RELAXEDHRULES" value="$LOGBACK_CONSOLE_LOGGING$" />
+        <option name="SMARTS" value="false" />
+        <option name="STRIKETHROUGH" value="$LOGBACK_CONSOLE_LOGGING$" />
+        <option name="SUBSCRIPT" value="false" />
+        <option name="SUPERSCRIPT" value="false" />
+        <option name="SUPPRESS_HTML_BLOCKS" value="false" />
+        <option name="SUPPRESS_INLINE_HTML" value="false" />
+        <option name="TABLES" value="$LOGBACK_CONSOLE_LOGGING$" />
+        <option name="TASKLISTITEMS" value="$LOGBACK_CONSOLE_LOGGING$" />
+        <option name="TOC" value="false" />
+        <option name="WIKILINKS" value="false" />
+      </PegdownExtensions>
+      <ParserOptions>
+        <option name="ADMONITION_EXT" value="false" />
+        <option name="ATTRIBUTES_EXT" value="false" />
+        <option name="COMMONMARK_LISTS" value="$LOGBACK_CONSOLE_LOGGING$" />
+        <option name="DUMMY" value="false" />
+        <option name="EMOJI_SHORTCUTS" value="$LOGBACK_CONSOLE_LOGGING$" />
+        <option name="ENUMERATED_REFERENCES_EXT" value="false" />
+        <option name="FLEXMARK_FRONT_MATTER" value="false" />
+        <option name="GFM_LOOSE_BLANK_LINE_AFTER_ITEM_PARA" value="false" />
+        <option name="GFM_TABLE_RENDERING" value="$LOGBACK_CONSOLE_LOGGING$" />
+        <option name="GITBOOK_URL_ENCODING" value="false" />
+        <option name="GITHUB_LISTS" value="false" />
+        <option name="GITHUB_WIKI_LINKS" value="false" />
+        <option name="GITLAB_EXT" value="false" />
+        <option name="GITLAB_MATH_EXT" value="false" />
+        <option name="GITLAB_MERMAID_EXT" value="false" />
+        <option name="HEADER_ID_NON_ASCII_TO_LOWERCASE" value="false" />
+        <option name="HEADER_ID_NO_DUPED_DASHES" value="false" />
+        <option name="JEKYLL_FRONT_MATTER" value="false" />
+        <option name="MACROS_EXT" value="false" />
+        <option name="NO_TEXT_ATTRIBUTES" value="false" />
+        <option name="PARSE_HTML_ANCHOR_ID" value="false" />
+        <option name="PLANTUML_FENCED_CODE" value="false" />
+        <option name="PUML_FENCED_CODE" value="false" />
+        <option name="SIM_TOC_BLANK_LINE_SPACER" value="$LOGBACK_CONSOLE_LOGGING$" />
+      </ParserOptions>
+    </ParserSettings>
+    <HtmlSettings headerTopEnabled="false" headerBottomEnabled="false" bodyTopEnabled="false" bodyBottomEnabled="false" embedUrlContent="false" addPageHeader="$LOGBACK_CONSOLE_LOGGING$" embedImages="false" embedHttpImages="false" imageUriSerials="false" addDocTypeHtml="$LOGBACK_CONSOLE_LOGGING$" noParaTags="false" plantUmlConversion="0" mathConversion="0">
+      <GeneratorProvider>
+        <provider providerId="com.vladsch.idea.multimarkdown.editor.swing.html.generator" providerName="Default Swing HTML Generator" />
+      </GeneratorProvider>
+      <headerTop />
+      <headerBottom />
+      <bodyTop />
+      <bodyBottom />
+    </HtmlSettings>
+    <CssSettings previewScheme="UI_SCHEME" cssUri="" isCssUriEnabled="false" isCssUriSerial="$LOGBACK_CONSOLE_LOGGING$" isCssTextEnabled="false" isDynamicPageWidth="$LOGBACK_CONSOLE_LOGGING$">
+      <StylesheetProvider>
+        <provider providerId="com.vladsch.idea.multimarkdown.editor.swing.html.css" providerName="Default Swing Stylesheet" />
+      </StylesheetProvider>
+      <ScriptProviders />
+      <cssText />
+      <cssUriHistory />
+    </CssSettings>
+    <AnnotatorSettings targetHasSpaces="$LOGBACK_CONSOLE_LOGGING$" linkCaseMismatch="$LOGBACK_CONSOLE_LOGGING$" wikiCaseMismatch="$LOGBACK_CONSOLE_LOGGING$" wikiLinkHasDashes="$LOGBACK_CONSOLE_LOGGING$" notUnderWikiHome="$LOGBACK_CONSOLE_LOGGING$" targetNotWikiPageExt="$LOGBACK_CONSOLE_LOGGING$" notUnderSourceWikiHome="$LOGBACK_CONSOLE_LOGGING$" targetNameHasAnchor="$LOGBACK_CONSOLE_LOGGING$" targetPathHasAnchor="$LOGBACK_CONSOLE_LOGGING$" wikiLinkHasSlash="$LOGBACK_CONSOLE_LOGGING$" wikiLinkHasSubdir="$LOGBACK_CONSOLE_LOGGING$" wikiLinkHasOnlyAnchor="$LOGBACK_CONSOLE_LOGGING$" linkTargetsWikiHasExt="$LOGBACK_CONSOLE_LOGGING$" linkTargetsWikiHasBadExt="$LOGBACK_CONSOLE_LOGGING$" notUnderSameRepo="$LOGBACK_CONSOLE_LOGGING$" targetNotUnderVcs="false" linkNeedsExt="$LOGBACK_CONSOLE_LOGGING$" linkHasBadExt="$LOGBACK_CONSOLE_LOGGING$" linkTargetNeedsExt="$LOGBACK_CONSOLE_LOGGING$" linkTargetHasBadExt="$LOGBACK_CONSOLE_LOGGING$" wikiLinkNotInWiki="$LOGBACK_CONSOLE_LOGGING$" imageTargetNotInRaw="$LOGBACK_CONSOLE_LOGGING$" repoRelativeAcrossVcsRoots="$LOGBACK_CONSOLE_LOGGING$" multipleWikiTargetsMatch="$LOGBACK_CONSOLE_LOGGING$" unresolvedLinkReference="$LOGBACK_CONSOLE_LOGGING$" linkIsIgnored="$LOGBACK_CONSOLE_LOGGING$" anchorIsIgnored="$LOGBACK_CONSOLE_LOGGING$" anchorIsUnresolved="$LOGBACK_CONSOLE_LOGGING$" anchorLineReferenceIsUnresolved="$LOGBACK_CONSOLE_LOGGING$" anchorLineReferenceFormat="$LOGBACK_CONSOLE_LOGGING$" anchorHasDuplicates="$LOGBACK_CONSOLE_LOGGING$" abbreviationDuplicates="$LOGBACK_CONSOLE_LOGGING$" abbreviationNotUsed="$LOGBACK_CONSOLE_LOGGING$" attributeIdDuplicateDefinition="$LOGBACK_CONSOLE_LOGGING$" attributeIdNotUsed="$LOGBACK_CONSOLE_LOGGING$" footnoteDuplicateDefinition="$LOGBACK_CONSOLE_LOGGING$" footnoteUnresolved="$LOGBACK_CONSOLE_LOGGING$" footnoteDuplicates="$LOGBACK_CONSOLE_LOGGING$" footnoteNotUsed="$LOGBACK_CONSOLE_LOGGING$" macroDuplicateDefinition="$LOGBACK_CONSOLE_LOGGING$" macroUnresolved="$LOGBACK_CONSOLE_LOGGING$" macroDuplicates="$LOGBACK_CONSOLE_LOGGING$" macroNotUsed="$LOGBACK_CONSOLE_LOGGING$" referenceDuplicateDefinition="$LOGBACK_CONSOLE_LOGGING$" referenceUnresolved="$LOGBACK_CONSOLE_LOGGING$" referenceDuplicates="$LOGBACK_CONSOLE_LOGGING$" referenceNotUsed="$LOGBACK_CONSOLE_LOGGING$" referenceUnresolvedNumericId="$LOGBACK_CONSOLE_LOGGING$" enumRefDuplicateDefinition="$LOGBACK_CONSOLE_LOGGING$" enumRefUnresolved="$LOGBACK_CONSOLE_LOGGING$" enumRefDuplicates="$LOGBACK_CONSOLE_LOGGING$" enumRefNotUsed="$LOGBACK_CONSOLE_LOGGING$" enumRefLinkUnresolved="$LOGBACK_CONSOLE_LOGGING$" enumRefLinkDuplicates="$LOGBACK_CONSOLE_LOGGING$" simTocUpdateNeeded="$LOGBACK_CONSOLE_LOGGING$" simTocTitleSpaceNeeded="$LOGBACK_CONSOLE_LOGGING$" />
+    <HtmlExportSettings updateOnSave="false" parentDir="" targetDir="" cssDir="css" scriptDir="js" plainHtml="false" imageDir="" copyLinkedImages="false" imageUniquifyType="0" targetPathType="2" targetExt="" useTargetExt="false" noCssNoScripts="false" useElementStyleAttribute="false" linkToExportedHtml="$LOGBACK_CONSOLE_LOGGING$" exportOnSettingsChange="$LOGBACK_CONSOLE_LOGGING$" regenerateOnProjectOpen="false" linkFormatType="HTTP_ABSOLUTE" />
+    <LinkMapSettings>
+      <textMaps />
+    </LinkMapSettings>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_6">
+    <output url="file://$PROJECT_DIR$/out" />
+  </component>
+</project>

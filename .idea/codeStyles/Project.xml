@@ -1,0 +1,463 @@
+<component name="ProjectCodeStyleConfiguration">
+  <code_scheme name="Project" version="173">
+    <option name="LINE_SEPARATOR" value="&#10;" />
+    <option name="FORMATTER_TAGS_ENABLED" value="$LOGBACK_CONSOLE_LOGGING$" />
+    <HTMLCodeStyleSettings>
+      <option name="HTML_ALIGN_ATTRIBUTES" value="false" />
+      <option name="HTML_SPACE_INSIDE_EMPTY_TAG" value="$LOGBACK_CONSOLE_LOGGING$" />
+      <option name="HTML_DO_NOT_INDENT_CHILDREN_OF" value="html,head" />
+    </HTMLCodeStyleSettings>
+    <JavaCodeStyleSettings>
+      <option name="ANNOTATION_PARAMETER_WRAP" value="1" />
+      <option name="CLASS_NAMES_IN_JAVADOC" value="3" />
+      <option name="CLASS_COUNT_TO_USE_IMPORT_ON_DEMAND" value="9999" />
+      <option name="NAMES_COUNT_TO_USE_IMPORT_ON_DEMAND" value="9999" />
+      <option name="PACKAGES_TO_USE_IMPORT_ON_DEMAND">
+        <value />
+      </option>
+      <option name="IMPORT_LAYOUT_TABLE">
+        <value>
+          <package name="" withSubpackages="$LOGBACK_CONSOLE_LOGGING$" static="$LOGBACK_CONSOLE_LOGGING$" />
+          <emptyLine />
+          <package name="com.deviceinsight" withSubpackages="$LOGBACK_CONSOLE_LOGGING$" static="false" />
+          <emptyLine />
+          <package name="net.centersight" withSubpackages="$LOGBACK_CONSOLE_LOGGING$" static="false" />
+          <emptyLine />
+          <package name="" withSubpackages="$LOGBACK_CONSOLE_LOGGING$" static="false" />
+          <emptyLine />
+          <package name="java" withSubpackages="$LOGBACK_CONSOLE_LOGGING$" static="false" />
+          <emptyLine />
+          <package name="javax" withSubpackages="$LOGBACK_CONSOLE_LOGGING$" static="false" />
+        </value>
+      </option>
+    </JavaCodeStyleSettings>
+    <JavaeeCodeStyleSettings>
+      <option name="ENTITY_PK_CLASS" value="java.lang.Long" />
+    </JavaeeCodeStyleSettings>
+    <JetCodeStyleSettings>
+      <option name="PACKAGES_TO_USE_STAR_IMPORTS">
+        <value />
+      </option>
+      <option name="NAME_COUNT_TO_USE_STAR_IMPORT" value="2147483647" />
+      <option name="NAME_COUNT_TO_USE_STAR_IMPORT_FOR_MEMBERS" value="2147483647" />
+    </JetCodeStyleSettings>
+    <XML>
+      <option name="XML_ATTRIBUTE_WRAP" value="0" />
+      <option name="XML_ALIGN_ATTRIBUTES" value="false" />
+      <option name="XML_SPACE_INSIDE_EMPTY_TAG" value="$LOGBACK_CONSOLE_LOGGING$" />
+      <option name="XML_LEGACY_SETTINGS_IMPORTED" value="$LOGBACK_CONSOLE_LOGGING$" />
+    </XML>
+    <codeStyleSettings language="CSS">
+      <indentOptions>
+        <option name="USE_TAB_CHARACTER" value="$LOGBACK_CONSOLE_LOGGING$" />
+      </indentOptions>
+    </codeStyleSettings>
+    <codeStyleSettings language="DB2">
+      <indentOptions>
+        <option name="USE_TAB_CHARACTER" value="$LOGBACK_CONSOLE_LOGGING$" />
+      </indentOptions>
+    </codeStyleSettings>
+    <codeStyleSettings language="Derby">
+      <indentOptions>
+        <option name="USE_TAB_CHARACTER" value="$LOGBACK_CONSOLE_LOGGING$" />
+      </indentOptions>
+    </codeStyleSettings>
+    <codeStyleSettings language="Groovy">
+      <indentOptions>
+        <option name="USE_TAB_CHARACTER" value="$LOGBACK_CONSOLE_LOGGING$" />
+      </indentOptions>
+    </codeStyleSettings>
+    <codeStyleSettings language="H2">
+      <indentOptions>
+        <option name="USE_TAB_CHARACTER" value="$LOGBACK_CONSOLE_LOGGING$" />
+      </indentOptions>
+    </codeStyleSettings>
+    <codeStyleSettings language="HSQLDB">
+      <indentOptions>
+        <option name="USE_TAB_CHARACTER" value="$LOGBACK_CONSOLE_LOGGING$" />
+      </indentOptions>
+    </codeStyleSettings>
+    <codeStyleSettings language="HTML">
+      <indentOptions>
+        <option name="USE_TAB_CHARACTER" value="$LOGBACK_CONSOLE_LOGGING$" />
+      </indentOptions>
+    </codeStyleSettings>
+    <codeStyleSettings language="JAVA">
+      <option name="RIGHT_MARGIN" value="120" />
+      <option name="KEEP_LINE_BREAKS" value="false" />
+      <option name="KEEP_FIRST_COLUMN_COMMENT" value="false" />
+      <option name="KEEP_CONTROL_STATEMENT_IN_ONE_LINE" value="false" />
+      <option name="BLANK_LINES_AFTER_CLASS_HEADER" value="1" />
+      <option name="BLANK_LINES_AFTER_ANONYMOUS_CLASS_HEADER" value="1" />
+      <option name="ALIGN_MULTILINE_PARAMETERS" value="false" />
+      <option name="ALIGN_MULTILINE_RESOURCES" value="false" />
+      <option name="ALIGN_MULTILINE_FOR" value="false" />
+      <option name="SPACE_BEFORE_ARRAY_INITIALIZER_LBRACE" value="$LOGBACK_CONSOLE_LOGGING$" />
+      <option name="CALL_PARAMETERS_WRAP" value="1" />
+      <option name="METHOD_PARAMETERS_WRAP" value="1" />
+      <option name="RESOURCE_LIST_WRAP" value="1" />
+      <option name="EXTENDS_LIST_WRAP" value="1" />
+      <option name="THROWS_LIST_WRAP" value="1" />
+      <option name="EXTENDS_KEYWORD_WRAP" value="1" />
+      <option name="THROWS_KEYWORD_WRAP" value="1" />
+      <option name="METHOD_CALL_CHAIN_WRAP" value="5" />
+      <option name="BINARY_OPERATION_WRAP" value="1" />
+      <option name="TERNARY_OPERATION_WRAP" value="5" />
+      <option name="TERNARY_OPERATION_SIGNS_ON_NEXT_LINE" value="$LOGBACK_CONSOLE_LOGGING$" />
+      <option name="FOR_STATEMENT_WRAP" value="1" />
+      <option name="ARRAY_INITIALIZER_WRAP" value="1" />
+      <option name="ASSIGNMENT_WRAP" value="1" />
+      <option name="ASSERT_STATEMENT_WRAP" value="1" />
+      <option name="IF_BRACE_FORCE" value="3" />
+      <option name="DOWHILE_BRACE_FORCE" value="3" />
+      <option name="WHILE_BRACE_FORCE" value="3" />
+      <option name="FOR_BRACE_FORCE" value="3" />
+      <option name="WRAP_LONG_LINES" value="$LOGBACK_CONSOLE_LOGGING$" />
+      <option name="PARAMETER_ANNOTATION_WRAP" value="1" />
+      <option name="VARIABLE_ANNOTATION_WRAP" value="2" />
+      <option name="ENUM_CONSTANTS_WRAP" value="2" />
+      <indentOptions>
+        <option name="USE_TAB_CHARACTER" value="$LOGBACK_CONSOLE_LOGGING$" />
+      </indentOptions>
+      <arrangement>
+        <rules>
+          <section>
+            <rule>
+              <match>
+                <ENUM>$LOGBACK_CONSOLE_LOGGING$</ENUM>
+              </match>
+            </rule>
+          </section>
+          <section>
+            <rule>
+              <match>
+                <INTERFACE>$LOGBACK_CONSOLE_LOGGING$</INTERFACE>
+              </match>
+            </rule>
+          </section>
+          <section>
+            <rule>
+              <match>
+                <AND>
+                  <CLASS>$LOGBACK_CONSOLE_LOGGING$</CLASS>
+                  <STATIC>$LOGBACK_CONSOLE_LOGGING$</STATIC>
+                </AND>
+              </match>
+            </rule>
+          </section>
+          <section>
+            <rule>
+              <match>
+                <CLASS>$LOGBACK_CONSOLE_LOGGING$</CLASS>
+              </match>
+            </rule>
+          </section>
+          <section>
+            <rule>
+              <match>
+                <AND>
+                  <FIELD>$LOGBACK_CONSOLE_LOGGING$</FIELD>
+                  <FINAL>$LOGBACK_CONSOLE_LOGGING$</FINAL>
+                  <PUBLIC>$LOGBACK_CONSOLE_LOGGING$</PUBLIC>
+                  <STATIC>$LOGBACK_CONSOLE_LOGGING$</STATIC>
+                </AND>
+              </match>
+            </rule>
+          </section>
+          <section>
+            <rule>
+              <match>
+                <AND>
+                  <FIELD>$LOGBACK_CONSOLE_LOGGING$</FIELD>
+                  <FINAL>$LOGBACK_CONSOLE_LOGGING$</FINAL>
+                  <PROTECTED>$LOGBACK_CONSOLE_LOGGING$</PROTECTED>
+                  <STATIC>$LOGBACK_CONSOLE_LOGGING$</STATIC>
+                </AND>
+              </match>
+            </rule>
+          </section>
+          <section>
+            <rule>
+              <match>
+                <AND>
+                  <FIELD>$LOGBACK_CONSOLE_LOGGING$</FIELD>
+                  <FINAL>$LOGBACK_CONSOLE_LOGGING$</FINAL>
+                  <PACKAGE_PRIVATE>$LOGBACK_CONSOLE_LOGGING$</PACKAGE_PRIVATE>
+                  <STATIC>$LOGBACK_CONSOLE_LOGGING$</STATIC>
+                </AND>
+              </match>
+            </rule>
+          </section>
+          <section>
+            <rule>
+              <match>
+                <AND>
+                  <FIELD>$LOGBACK_CONSOLE_LOGGING$</FIELD>
+                  <FINAL>$LOGBACK_CONSOLE_LOGGING$</FINAL>
+                  <PRIVATE>$LOGBACK_CONSOLE_LOGGING$</PRIVATE>
+                  <STATIC>$LOGBACK_CONSOLE_LOGGING$</STATIC>
+                </AND>
+              </match>
+            </rule>
+          </section>
+          <section>
+            <rule>
+              <match>
+                <AND>
+                  <FIELD>$LOGBACK_CONSOLE_LOGGING$</FIELD>
+                  <PUBLIC>$LOGBACK_CONSOLE_LOGGING$</PUBLIC>
+                  <STATIC>$LOGBACK_CONSOLE_LOGGING$</STATIC>
+                </AND>
+              </match>
+            </rule>
+          </section>
+          <section>
+            <rule>
+              <match>
+                <AND>
+                  <FIELD>$LOGBACK_CONSOLE_LOGGING$</FIELD>
+                  <PROTECTED>$LOGBACK_CONSOLE_LOGGING$</PROTECTED>
+                  <STATIC>$LOGBACK_CONSOLE_LOGGING$</STATIC>
+                </AND>
+              </match>
+            </rule>
+          </section>
+          <section>
+            <rule>
+              <match>
+                <AND>
+                  <FIELD>$LOGBACK_CONSOLE_LOGGING$</FIELD>
+                  <PACKAGE_PRIVATE>$LOGBACK_CONSOLE_LOGGING$</PACKAGE_PRIVATE>
+                  <STATIC>$LOGBACK_CONSOLE_LOGGING$</STATIC>
+                </AND>
+              </match>
+            </rule>
+          </section>
+          <section>
+            <rule>
+              <match>
+                <AND>
+                  <FIELD>$LOGBACK_CONSOLE_LOGGING$</FIELD>
+                  <PRIVATE>$LOGBACK_CONSOLE_LOGGING$</PRIVATE>
+                  <STATIC>$LOGBACK_CONSOLE_LOGGING$</STATIC>
+                </AND>
+              </match>
+            </rule>
+          </section>
+          <section>
+            <rule>
+              <match>
+                <AND>
+                  <INITIALIZER_BLOCK>$LOGBACK_CONSOLE_LOGGING$</INITIALIZER_BLOCK>
+                  <STATIC>$LOGBACK_CONSOLE_LOGGING$</STATIC>
+                </AND>
+              </match>
+            </rule>
+          </section>
+          <section>
+            <rule>
+              <match>
+                <AND>
+                  <FIELD>$LOGBACK_CONSOLE_LOGGING$</FIELD>
+                  <FINAL>$LOGBACK_CONSOLE_LOGGING$</FINAL>
+                  <PUBLIC>$LOGBACK_CONSOLE_LOGGING$</PUBLIC>
+                </AND>
+              </match>
+            </rule>
+          </section>
+          <section>
+            <rule>
+              <match>
+                <AND>
+                  <FIELD>$LOGBACK_CONSOLE_LOGGING$</FIELD>
+                  <FINAL>$LOGBACK_CONSOLE_LOGGING$</FINAL>
+                  <PROTECTED>$LOGBACK_CONSOLE_LOGGING$</PROTECTED>
+                </AND>
+              </match>
+            </rule>
+          </section>
+          <section>
+            <rule>
+              <match>
+                <AND>
+                  <FIELD>$LOGBACK_CONSOLE_LOGGING$</FIELD>
+                  <FINAL>$LOGBACK_CONSOLE_LOGGING$</FINAL>
+                  <PACKAGE_PRIVATE>$LOGBACK_CONSOLE_LOGGING$</PACKAGE_PRIVATE>
+                </AND>
+              </match>
+            </rule>
+          </section>
+          <section>
+            <rule>
+              <match>
+                <AND>
+                  <FIELD>$LOGBACK_CONSOLE_LOGGING$</FIELD>
+                  <FINAL>$LOGBACK_CONSOLE_LOGGING$</FINAL>
+                  <PRIVATE>$LOGBACK_CONSOLE_LOGGING$</PRIVATE>
+                </AND>
+              </match>
+            </rule>
+          </section>
+          <section>
+            <rule>
+              <match>
+                <AND>
+                  <FIELD>$LOGBACK_CONSOLE_LOGGING$</FIELD>
+                  <PUBLIC>$LOGBACK_CONSOLE_LOGGING$</PUBLIC>
+                </AND>
+              </match>
+            </rule>
+          </section>
+          <section>
+            <rule>
+              <match>
+                <AND>
+                  <FIELD>$LOGBACK_CONSOLE_LOGGING$</FIELD>
+                  <PROTECTED>$LOGBACK_CONSOLE_LOGGING$</PROTECTED>
+                </AND>
+              </match>
+            </rule>
+          </section>
+          <section>
+            <rule>
+              <match>
+                <AND>
+                  <FIELD>$LOGBACK_CONSOLE_LOGGING$</FIELD>
+                  <PACKAGE_PRIVATE>$LOGBACK_CONSOLE_LOGGING$</PACKAGE_PRIVATE>
+                </AND>
+              </match>
+            </rule>
+          </section>
+          <section>
+            <rule>
+              <match>
+                <AND>
+                  <FIELD>$LOGBACK_CONSOLE_LOGGING$</FIELD>
+                  <PRIVATE>$LOGBACK_CONSOLE_LOGGING$</PRIVATE>
+                </AND>
+              </match>
+            </rule>
+          </section>
+          <section>
+            <rule>
+              <match>
+                <FIELD>$LOGBACK_CONSOLE_LOGGING$</FIELD>
+              </match>
+            </rule>
+          </section>
+          <section>
+            <rule>
+              <match>
+                <INITIALIZER_BLOCK>$LOGBACK_CONSOLE_LOGGING$</INITIALIZER_BLOCK>
+              </match>
+            </rule>
+          </section>
+          <section>
+            <rule>
+              <match>
+                <CONSTRUCTOR>$LOGBACK_CONSOLE_LOGGING$</CONSTRUCTOR>
+              </match>
+            </rule>
+          </section>
+          <section>
+            <rule>
+              <match>
+                <AND>
+                  <METHOD>$LOGBACK_CONSOLE_LOGGING$</METHOD>
+                  <STATIC>$LOGBACK_CONSOLE_LOGGING$</STATIC>
+                </AND>
+              </match>
+            </rule>
+          </section>
+          <section>
+            <rule>
+              <match>
+                <METHOD>$LOGBACK_CONSOLE_LOGGING$</METHOD>
+              </match>
+            </rule>
+          </section>
+        </rules>
+      </arrangement>
+    </codeStyleSettings>
+    <codeStyleSettings language="JSP">
+      <indentOptions>
+        <option name="USE_TAB_CHARACTER" value="$LOGBACK_CONSOLE_LOGGING$" />
+      </indentOptions>
+    </codeStyleSettings>
+    <codeStyleSettings language="JSPX">
+      <indentOptions>
+        <option name="USE_TAB_CHARACTER" value="$LOGBACK_CONSOLE_LOGGING$" />
+      </indentOptions>
+    </codeStyleSettings>
+    <codeStyleSettings language="JavaScript">
+      <indentOptions>
+        <option name="USE_TAB_CHARACTER" value="$LOGBACK_CONSOLE_LOGGING$" />
+      </indentOptions>
+    </codeStyleSettings>
+    <codeStyleSettings language="LESS">
+      <indentOptions>
+        <option name="USE_TAB_CHARACTER" value="$LOGBACK_CONSOLE_LOGGING$" />
+      </indentOptions>
+    </codeStyleSettings>
+    <codeStyleSettings language="MySQL">
+      <indentOptions>
+        <option name="USE_TAB_CHARACTER" value="$LOGBACK_CONSOLE_LOGGING$" />
+      </indentOptions>
+    </codeStyleSettings>
+    <codeStyleSettings language="Oracle">
+      <indentOptions>
+        <option name="USE_TAB_CHARACTER" value="$LOGBACK_CONSOLE_LOGGING$" />
+      </indentOptions>
+    </codeStyleSettings>
+    <codeStyleSettings language="PROTO">
+      <indentOptions>
+        <option name="USE_TAB_CHARACTER" value="$LOGBACK_CONSOLE_LOGGING$" />
+      </indentOptions>
+    </codeStyleSettings>
+    <codeStyleSettings language="PostgreSQL">
+      <indentOptions>
+        <option name="USE_TAB_CHARACTER" value="$LOGBACK_CONSOLE_LOGGING$" />
+      </indentOptions>
+    </codeStyleSettings>
+    <codeStyleSettings language="SASS">
+      <indentOptions>
+        <option name="USE_TAB_CHARACTER" value="$LOGBACK_CONSOLE_LOGGING$" />
+      </indentOptions>
+    </codeStyleSettings>
+    <codeStyleSettings language="SCSS">
+      <indentOptions>
+        <option name="USE_TAB_CHARACTER" value="$LOGBACK_CONSOLE_LOGGING$" />
+      </indentOptions>
+    </codeStyleSettings>
+    <codeStyleSettings language="SQL">
+      <indentOptions>
+        <option name="USE_TAB_CHARACTER" value="$LOGBACK_CONSOLE_LOGGING$" />
+      </indentOptions>
+    </codeStyleSettings>
+    <codeStyleSettings language="SQLite">
+      <indentOptions>
+        <option name="USE_TAB_CHARACTER" value="$LOGBACK_CONSOLE_LOGGING$" />
+      </indentOptions>
+    </codeStyleSettings>
+    <codeStyleSettings language="Sybase">
+      <indentOptions>
+        <option name="USE_TAB_CHARACTER" value="$LOGBACK_CONSOLE_LOGGING$" />
+      </indentOptions>
+    </codeStyleSettings>
+    <codeStyleSettings language="TSQL">
+      <indentOptions>
+        <option name="USE_TAB_CHARACTER" value="$LOGBACK_CONSOLE_LOGGING$" />
+      </indentOptions>
+    </codeStyleSettings>
+    <codeStyleSettings language="XML">
+      <indentOptions>
+        <option name="USE_TAB_CHARACTER" value="$LOGBACK_CONSOLE_LOGGING$" />
+      </indentOptions>
+    </codeStyleSettings>
+    <codeStyleSettings language="kotlin">
+      <indentOptions>
+        <option name="USE_TAB_CHARACTER" value="$LOGBACK_CONSOLE_LOGGING$" />
+      </indentOptions>
+    </codeStyleSettings>
+  </code_scheme>
+</component>
