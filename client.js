@@ -55,6 +55,48 @@ function extractMaxPlayerAndCount(player, players, property) {
     }
 }
 
+function removeSplash(weaponsUsed) {
+
+    Object.keys(weaponsUsed).forEach(weapon => {
+        if (weapon.endsWith("_SPLASH")) {
+            const mainWeapon = weapon.replace("_SPLASH", "");
+            if (mainWeapon in weaponsUsed) {
+                weaponsUsed[mainWeapon] += weaponsUsed[weapon];
+            } else {
+                weaponsUsed[mainWeapon] = weaponsUsed[weapon];
+            }
+            delete weaponsUsed[weapon];
+        }
+    });
+
+    return weaponsUsed;
+}
+
+function getWeaponIcon(weaponName) {
+    switch (weaponName) {
+        case 'MOD_ROCKET':
+            return ':q3-rocket-launcher:';
+        case 'MOD_PLASMA':
+            return ':q3-plasma-gun:';
+        case 'MOD_SHOTGUN':
+            return ':q3-shotgun:';
+        case 'MOD_MACHINEGUN':
+            return ':q3-machine-gun:';
+        case 'MOD_RAILGUN':
+            return ':q3-railgun:';
+        case 'MOD_BFG':
+            return ':q3-bfg:';
+        case 'MOD_GRENADE':
+            return ':q3-grenade-launcher:';
+        case 'MOD_LIGHTNING':
+            return ':q3-lightning-gun:';
+        case 'MOD_GAUNTLET':
+            return ':feelsgood:';
+        default:
+            return weaponName;
+    }
+}
+
 function startClient() {
 
     const host = process.env.REST_API_HOST || '127.0.0.1';
@@ -107,8 +149,8 @@ function startClient() {
             return payload.data.players[b].score - payload.data.players[a].score
         });
 
-        let table = "| Player  | Frags  | Most Killed | Most Killed By | Favorite Weapon | Killed By World |\n"
-            + "| :------ | :----- | :----- | :----- | :----- | :----- |\n";
+        let table = "| Player  | Frags  | Most Killed | Most Killed By | Favorite Weapon | Killed By World | Suicides |\n"
+            + "| :------ | :----- | :----- | :----- | :----- | :----- | :----- |\n";
 
         playerIdSortedByScore.forEach(function(id) {
             if (id !== "1022") {
@@ -119,20 +161,27 @@ function startClient() {
                 let mostKilledBy = extractMaxPlayerAndCount(player, payload.data.players, "killedBy");
                 let favoriteWeapon = "-";
                 let killedByWorld = 0;
+                let suicides = 0;
 
                 if ("1022" in player.killedBy) {
                     killedByWorld = player.killedBy["1022"];
                 }
+
+                if (id in player.killedBy) {
+                    suicides = player.killedBy[id];
+                }
+
+                player.weaponsUsed = removeSplash(player.weaponsUsed);
 
                 const favoriteWeapons = Object.keys(player.weaponsUsed).sort(function (a, b) {
                     return player.weaponsUsed[b] - player.weaponsUsed[a]
                 });
 
                 if (favoriteWeapons.length > 0) {
-                    favoriteWeapon = favoriteWeapons[0] + "(" + player.weaponsUsed[favoriteWeapons[0]] + ")";
+                    favoriteWeapon = getWeaponIcon(favoriteWeapons[0]) + " " + player.weaponsUsed[favoriteWeapons[0]];
                 }
 
-                table += "| " + name + " | " + score + " | " + mostKilled + " | " + mostKilledBy + " | " + favoriteWeapon + " | " + killedByWorld  + " |\n";
+                table += "| " + name + " | " + score + " | " + mostKilled + " | " + mostKilledBy + " | " + favoriteWeapon + " | " + killedByWorld + " | " + suicides  + " |\n";
             }
         });
 
