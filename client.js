@@ -38,7 +38,11 @@ function sendNotification(message) {
 }
 
 function sanitizePlayerName(name) {
-    return name.replace(/\^\d+/g, "")
+    if (name === undefined) {
+        return "<unknown>";
+    } else {
+        return name.replace(/\^\d+/g, "")
+    }
 }
 
 function extractMaxPlayerAndCount(player, players, property) {
@@ -72,8 +76,8 @@ function removeSplash(weaponsUsed) {
     return weaponsUsed;
 }
 
-function getWeaponIcon(weaponName) {
-    switch (weaponName) {
+function getIcon(element) {
+    switch (element) {
         case 'MOD_ROCKET':
             return ':q3-rocket-launcher:';
         case 'MOD_PLASMA':
@@ -92,9 +96,48 @@ function getWeaponIcon(weaponName) {
             return ':q3-lightning-gun:';
         case 'MOD_GAUNTLET':
             return ':feelsgood:';
+        case 'item_health_small':
+            return ':q3-health-small:';
+        case 'item_health_large':
+            return ':q3-health-large:';
+        case 'item_health_mega':
+            return ':q3-health-mega:';
+        case 'item_armor_shard':
+            return ':q3-armor-shard:';
+        case 'item_armor_combat':
+            return ':q3-armor-combat:';
+        case 'item_armor_body':
+            return ':q3-armor-body:';
+        case 'item_quad':
+            return ':q3-quad:';
+        case 'item_enviro':
+            return ':q3-enviro:';
+        case 'item_haste':
+            return ':q3-haste:';
+        case 'item_invis':
+            return ':q3-invis:';
+        case 'item_regen':
+            return ':q3-regen:';
         default:
-            return weaponName;
+            return element;
     }
+}
+
+function getIconString(items, limit) {
+    const sortedItems = Object.keys(items).sort(function (a, b) {
+        return items[b] - items[a]
+    });
+
+    let iconString = '';
+
+    for (let i = 0; i < sortedItems.length; i++) {
+        if (limit === -1 || i < limit) {
+            iconString += (" " + getIcon(sortedItems[i]) + " " + items[sortedItems[i]]);
+            iconString = iconString.trimStart();
+        }
+    }
+
+    return iconString;
 }
 
 function startClient() {
@@ -105,6 +148,7 @@ function startClient() {
 
     let currentMap = undefined;
     let currentPlayers = [];
+    let collectedItems = {};
 
     console.log('url: ' + url);
 
@@ -121,6 +165,7 @@ function startClient() {
         if (currentPlayers.indexOf(name) === -1) {
             sendNotification("player joined: **" + name + "**");
             currentPlayers.push(name);
+            collectedItems[payload.data.id] = {}
         }
     });
     socket.on('playerInfoChanged', function (payload) {
@@ -149,17 +194,21 @@ function startClient() {
             return payload.data.players[b].score - payload.data.players[a].score
         });
 
-        let table = "| Player  | Frags  | Most Killed | Most Killed By | Favorite Weapons | Killed By World | Suicides |\n"
-            + "| :------ | :----- | :----- | :----- | :----- | :----- | :----- |\n";
+        let table = "| Player  | Frags  | Most Killed | Most Killed By | Favorite Weapons | Items | Killed By World | Suicides |\n"
+            + "| :------ | :----- | :----- | :----- | :----- | :----- | :----- | :----- |\n";
+
+        let atLeastOnePlayer = false;
 
         playerIdSortedByScore.forEach(function(id) {
             if (id !== "1022") {
+                atLeastOnePlayer = true;
                 const player = payload.data.players[id];
                 let name = sanitizePlayerName(player.n);
                 let score = player.score;
                 let mostKilled = extractMaxPlayerAndCount(player, payload.data.players, "killed");
                 let mostKilledBy = extractMaxPlayerAndCount(player, payload.data.players, "killedBy");
-                let favoriteWeaponString = "";
+                let favoriteWeaponString = getIconString(removeSplash(player.weaponsUsed), 3);
+                let favoriteItemString = getIconString(collectedItems[id], -1);
                 let killedByWorld = 0;
                 let suicides = 0;
 
@@ -171,30 +220,33 @@ function startClient() {
                     suicides = player.killedBy[id];
                 }
 
-                player.weaponsUsed = removeSplash(player.weaponsUsed);
-
-                const favoriteWeapons = Object.keys(player.weaponsUsed).sort(function (a, b) {
-                    return player.weaponsUsed[b] - player.weaponsUsed[a]
-                });
-
-                for (let i = 0; i < favoriteWeapons.length; i++) {
-                    if (i < 3) {
-                        favoriteWeaponString += (" " + getWeaponIcon(favoriteWeapons[i]) + " " + player.weaponsUsed[favoriteWeapons[i]]);
-                        favoriteWeaponString = favoriteWeaponString.trimStart();
-                    }
-                }
-
-                table += "| " + name + " | " + score + " | " + mostKilled + " | " + mostKilledBy + " | " + favoriteWeaponString + " | " + killedByWorld + " | " + suicides  + " |\n";
+                table += "| " + name + " | " + score + " | " + mostKilled + " | " + mostKilledBy + " | " + favoriteWeaponString + " | " + favoriteItemString + " | " + killedByWorld + " | " + suicides  + " |\n";
             }
         });
 
-        sendNotification(table);
+        if (atLeastOnePlayer) {
+            sendNotification(table);
+        }
     });
     socket.on('gameShutdown', function (payload) {
         console.log("gameShutdown: " + JSON.stringify(payload));
     });
     socket.on('item', function (payload) {
         console.log("item: " + JSON.stringify(payload));
+        if (collectedItems[payload.data.player.id] !== undefined) {
+            let items = collectedItems[payload.data.player.id];
+
+            const relevantItems = ["item_health_small", "item_health_large", "item_health_mega", "item_armor_shard",
+                "item_armor_combat", "item_armor_body", "item_quad", "item_enviro", "item_haste", "item_invis", "item_regen"];
+
+            if (relevantItems.includes(payload.data.item)) {
+                if (payload.data.item in items) {
+                    items[payload.data.item]++;
+                } else {
+                    items[payload.data.item] = 1;
+                }
+            }
+        }
     });
     socket.on('kill', function (payload) {
         console.log("kill: " + JSON.stringify(payload));
