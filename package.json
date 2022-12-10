@@ -6,7 +6,7 @@
     "start": "node client.js"
   },
   "dependencies": {
-    "express": "~4.16.1",
+    "express": "~4.17.3",
     "https": "^1.0.0",
     "socket.io": "^2.5.0"
   }
