@@ -96,6 +96,8 @@ function getIcon(element) {
             return ':q3-lightning-gun:';
         case 'MOD_GAUNTLET':
             return ':feelsgood:';
+        case 'MOD_TELEFRAG':
+            return ':fireworks:';
         case 'item_health_small':
             return ':q3-health-small:';
         case 'item_health_large':
@@ -124,6 +126,11 @@ function getIcon(element) {
 }
 
 function getIconString(items, limit) {
+
+    if (!items) {
+        return null;
+    }
+
     const sortedItems = Object.keys(items).sort(function (a, b) {
         return items[b] - items[a]
     });
@@ -140,6 +147,26 @@ function getIconString(items, limit) {
     return iconString;
 }
 
+function lastKillBadge(weaponName) {
+
+    if (!weaponName) {
+        return '';
+    }
+
+    switch (weaponName) {
+        case 'MOD_ROCKET':
+            return ' :poop:';
+        case 'MOD_BFG':
+            return ' :clown_face:';
+        case 'MOD_GAUNTLET':
+            return ' :trophy:';
+        case 'MOD_TELEFRAG':
+            return ' :scream:';
+        default:
+            return '';
+    }
+}
+
 function startClient() {
 
     const host = process.env.REST_API_HOST || '127.0.0.1';
@@ -149,6 +176,7 @@ function startClient() {
     let currentMap = undefined;
     let currentPlayers = [];
     let collectedItems = {};
+    let lastKilledWith = {};
 
     console.log('url: ' + url);
 
@@ -198,6 +226,7 @@ function startClient() {
             + "| :------ | :----- | :----- | :----- | :----- | :----- | :----- | :----- |\n";
 
         let atLeastOnePlayer = false;
+        let isFirstPlayer = true;
 
         playerIdSortedByScore.forEach(function(id) {
             if (id !== "1022") {
@@ -211,6 +240,7 @@ function startClient() {
                 let favoriteItemString = getIconString(collectedItems[id], -1);
                 let killedByWorld = 0;
                 let suicides = 0;
+                let crown = isFirstPlayer ? lastKillBadge(lastKilledWith[id]) : '';
 
                 if ("1022" in player.killedBy) {
                     killedByWorld = player.killedBy["1022"];
@@ -220,7 +250,8 @@ function startClient() {
                     suicides = player.killedBy[id];
                 }
 
-                table += "| " + name + " | " + score + " | " + mostKilled + " | " + mostKilledBy + " | " + favoriteWeaponString + " | " + favoriteItemString + " | " + killedByWorld + " | " + suicides  + " |\n";
+                table += "| " + name + crown + " | " + score + " | " + mostKilled + " | " + mostKilledBy + " | " + favoriteWeaponString + " | " + favoriteItemString + " | " + killedByWorld + " | " + suicides  + " |\n";
+                isFirstPlayer = false;
             }
         });
 
@@ -250,6 +281,7 @@ function startClient() {
     });
     socket.on('kill', function (payload) {
         console.log("kill: " + JSON.stringify(payload));
+        lastKilledWith[payload.data.killer.id] = payload.data.weapon.n;
     });
     socket.on('disconnect', function () {
         console.log("disconnected");
